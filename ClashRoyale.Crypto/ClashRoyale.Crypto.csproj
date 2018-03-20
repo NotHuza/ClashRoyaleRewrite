@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A265C079-65AD-4B83-BA14-9C09B6FA94A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClashRoyale.Crypto</RootNamespace>
+    <AssemblyName>ClashRoyale.Crypto</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Builds\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Builds\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Blake\Blake2BBase.cs" />
+    <Compile Include="Blake\Blake2BBuilder.cs" />
+    <Compile Include="Blake\Blake2BConfig.cs" />
+    <Compile Include="Blake\Blake2BCore-FullyUnrolled.cs" />
+    <Compile Include="Blake\Blake2BCore.cs" />
+    <Compile Include="Blake\Blake2BHasher.cs" />
+    <Compile Include="Blake\Blake2BTreeConfig.cs" />
+    <Compile Include="Encrypters\IEncrypter.cs" />
+    <Compile Include="Encrypters\PepperEncrypter.cs" />
+    <Compile Include="Encrypters\Rc4Encrypter.cs" />
+    <Compile Include="Inits\PepperInit.cs" />
+    <Compile Include="Nacl\curve25519.cs" />
+    <Compile Include="Nacl\curve25519xsalsa20poly1305.cs" />
+    <Compile Include="Nacl\hsalsa20.cs" />
+    <Compile Include="Nacl\poly1305.cs" />
+    <Compile Include="Nacl\salsa20.cs" />
+    <Compile Include="Nacl\verify_16.cs" />
+    <Compile Include="Nacl\xsalsa20.cs" />
+    <Compile Include="Nacl\xsalsa20poly1305.cs" />
+    <Compile Include="PepperCrypto.cs" />
+    <Compile Include="PepperFactory.cs" />
+    <Compile Include="Randomizers\Xorshift.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+del /F /Q *.xml
+del /F /Q *.pdb</PostBuildEvent>
+  </PropertyGroup>
+</Project>

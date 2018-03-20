@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E47535EF-AC7F-4DF3-B784-209EFF7FAF54}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClashRoyale.Compression</RootNamespace>
+    <AssemblyName>ClashRoyale.Compression</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Builds\Debug\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Builds\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Lzma\Common\CommandLineParser.cs" />
+    <Compile Include="Lzma\Common\CRC.cs" />
+    <Compile Include="Lzma\Common\InBuffer.cs" />
+    <Compile Include="Lzma\Common\OutBuffer.cs" />
+    <Compile Include="Lzma\Compress\LzmaAlone\LzmaAlone.cs" />
+    <Compile Include="Lzma\Compress\LzmaAlone\LzmaBench.cs" />
+    <Compile Include="Lzma\Compress\LZMA\LzmaBase.cs" />
+    <Compile Include="Lzma\Compress\LZMA\LzmaDecoder.cs" />
+    <Compile Include="Lzma\Compress\LZMA\LzmaEncoder.cs" />
+    <Compile Include="Lzma\Compress\LZ\IMatchFinder.cs" />
+    <Compile Include="Lzma\Compress\LZ\LzBinTree.cs" />
+    <Compile Include="Lzma\Compress\LZ\LzInWindow.cs" />
+    <Compile Include="Lzma\Compress\LZ\LzOutWindow.cs" />
+    <Compile Include="Lzma\Compress\RangeCoder\RangeCoder.cs" />
+    <Compile Include="Lzma\Compress\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="Lzma\Compress\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="Lzma\ICoder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZLib\CRC32.cs" />
+    <Compile Include="ZLib\Deflate.cs" />
+    <Compile Include="ZLib\DeflateStream.cs" />
+    <Compile Include="ZLib\GZipStream.cs" />
+    <Compile Include="ZLib\Inflate.cs" />
+    <Compile Include="ZLib\InfTree.cs" />
+    <Compile Include="ZLib\Iso8859Dash1Encoding.cs" />
+    <Compile Include="ZLib\ParallelDeflateOutputStream.cs" />
+    <Compile Include="ZLib\Tree.cs" />
+    <Compile Include="ZLib\Zlib.cs" />
+    <Compile Include="ZLib\ZlibBaseStream.cs" />
+    <Compile Include="ZLib\ZlibCodec.cs" />
+    <Compile Include="ZLib\ZlibConstants.cs" />
+    <Compile Include="ZLib\ZlibStream.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>cd "$(TargetDir)"
+del /F /Q *.xml
+del /F /Q *.pdb</PostBuildEvent>
+  </PropertyGroup>
+</Project>
