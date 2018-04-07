@@ -36,7 +36,7 @@
         {
             string IpAddress = EndPoint.Address.ToString();
 
-            if (IpAddress.StartsWith("88.189") || IpAddress.StartsWith("192.168"))
+            if (IpAddress.StartsWith("88.189") || IpAddress.StartsWith("192.168") || IpAddress.StartsWith("127.0.0"))
             {
                 return true;
             }

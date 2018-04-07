@@ -36,7 +36,12 @@
                 {
                     Console.WriteLine("[*] Server failed to start.");
                 }
+
+                Console.WriteLine("[*] Server is started.");
+                Console.ReadKey(false);
             }
+
+            Console.ReadKey(false);
         }
     }
 }

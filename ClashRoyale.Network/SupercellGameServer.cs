@@ -23,7 +23,7 @@
         /// <param name="Session">The session.</param>
         private void OnConnection(SupercellDeviceSession Session)
         {
-            // Console.WriteLine("[*] OnConnection().");
+            Console.WriteLine("[*] OnConnection().");
         }
 
         /// <summary>
@@ -33,7 +33,7 @@
         /// <para name="Reason">The reason.</para>
         private void OnDisconnection(SupercellDeviceSession Session, CloseReason Reason)
         {
-            // Console.WriteLine("[*] OnDisconnection().");
+            Console.WriteLine("[*] OnDisconnection().");
         }
 
         /// <summary>
