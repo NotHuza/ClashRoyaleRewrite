@@ -1,4 +1,4 @@
-﻿namespace ClashRoyale.Enums
+﻿namespace ClashRoyale.Extensions
 {
     /// <summary>
     /// Enum of pixel formats.

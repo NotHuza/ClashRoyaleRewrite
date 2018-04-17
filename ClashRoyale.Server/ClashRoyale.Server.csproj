@@ -227,6 +227,10 @@
       <Project>{A265C079-65AD-4B83-BA14-9C09B6FA94A6}</Project>
       <Name>ClashRoyale.Crypto</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ClashRoyale.Files\ClashRoyale.Files.csproj">
+      <Project>{48c2d715-413f-4f4f-9422-f2b73d6b0254}</Project>
+      <Name>ClashRoyale.Files</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ClashRoyale.Logic\ClashRoyale.Logic.csproj">
       <Project>{edcf5bcf-ac76-4442-96b0-f8c532cd33bf}</Project>
       <Name>ClashRoyale.Logic</Name>

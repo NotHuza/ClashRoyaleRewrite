@@ -70,16 +70,12 @@
     <Compile Include="Config.cs" />
     <Compile Include="Enums\Database.cs" />
     <Compile Include="Enums\Destination.cs" />
-    <Compile Include="Enums\Gamefile.cs" />
     <Compile Include="Enums\HomeState.cs" />
     <Compile Include="Enums\Node.cs" />
-    <Compile Include="Enums\PixFormat.cs" />
     <Compile Include="Enums\Rank.cs" />
     <Compile Include="Enums\Reason.cs" />
     <Compile Include="Enums\State.cs" />
     <Compile Include="Exceptions\LogicException.cs" />
-    <Compile Include="Extensions\BinaryWriterHelper.cs" />
-    <Compile Include="Extensions\BinaryReaderHelper.cs" />
     <Compile Include="Extensions\ByteHelper.cs" />
     <Compile Include="Extensions\ByteStream.cs" />
     <Compile Include="Extensions\ChecksumEncoder.cs" />
@@ -89,7 +85,6 @@
     <Compile Include="Extensions\Helper\ByteStreamHelper.cs" />
     <Compile Include="Extensions\Helper\JsonHelper.cs" />
     <Compile Include="Extensions\Helper\ListHelper.cs" />
-    <Compile Include="Extensions\Helper\PixHelper.cs" />
     <Compile Include="Extensions\Helper\ZLibHelper.cs" />
     <Compile Include="Extensions\Utils\TimeUtil.cs" />
     <Compile Include="Files\Csv\Client\BackgroundDecoData.cs" />
@@ -4568,6 +4563,10 @@
     <ProjectReference Include="..\ClashRoyale.Crypto\ClashRoyale.Crypto.csproj">
       <Project>{a265c079-65ad-4b83-ba14-9c09b6fa94a6}</Project>
       <Name>ClashRoyale.Crypto</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ClashRoyale.Files\ClashRoyale.Files.csproj">
+      <Project>{48c2d715-413f-4f4f-9422-f2b73d6b0254}</Project>
+      <Name>ClashRoyale.Files</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

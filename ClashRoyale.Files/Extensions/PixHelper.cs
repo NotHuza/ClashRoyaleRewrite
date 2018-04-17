@@ -1,9 +1,7 @@
-﻿namespace ClashRoyale.Extensions.Helper
+﻿namespace ClashRoyale.Extensions
 {
     using System.Drawing;
     using System.IO;
-
-    using ClashRoyale.Enums;
 
     public static class PixHelper
     {
