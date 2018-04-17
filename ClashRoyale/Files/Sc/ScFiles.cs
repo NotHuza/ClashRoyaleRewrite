@@ -6,18 +6,47 @@
 
     public static class ScFiles
     {
-        private static List<ScTexture> Textures;
-        private static List<ScInfo> Infos;
+        /// <summary>
+        /// Gets a value indicating whether this <see cref="SoundFiles"/> is initialized.
+        /// </summary>
+        public static bool Initialized
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the texture files.
+        /// </summary>
+        public static List<ScTexture> Textures
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the info files.
+        /// </summary>
+        public static List<ScInfo> Infos
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         ///     Initializes this instance.
         /// </summary>
         public static void Initialize()
         {
-            string[] Files = Directory.GetFiles("Gamefiles/sc/", "*.sc");
+            if (ScFiles.Initialized)
+            {
+                return;
+            }
+
+            string[] Files   = Directory.GetFiles("Gamefiles/sc/", "*.sc");
 
             ScFiles.Textures = new List<ScTexture>(Files.Length);
-            ScFiles.Infos = new List<ScInfo>(Files.Length);
+            ScFiles.Infos    = new List<ScInfo>(Files.Length);
 
             foreach (string FilePath in Files)
             {
@@ -37,20 +66,22 @@
             {
                 foreach (ScTexture ScTexture in ScFiles.Textures)
                 {
-                    ScTexture.Read().Wait(2500);
+                    ScTexture.Read();
                 }
 
                 foreach (ScInfo ScInfo in ScFiles.Infos)
                 {
-                    ScInfo.Read().Wait(5000);
+                    ScInfo.Read();
                 }
             });
+
+            ScFiles.Initialized = true;
 
             Logging.Info(typeof(ScFiles), "Loaded " + Files.Length + " SC files.");
         }
 
         /// <summary>
-        ///     Search and return the correct <see cref="ScFile" /> according to the given <see cref="ScTexture" /> file.
+        /// Search and return the correct <see cref="ScFile" /> according to the given <see cref="ScTexture" /> file.
         /// </summary>
         /// <param name="Path">The path.</param>
         public static ScInfo GetScInfoFile(ScTexture ScTexture)
@@ -66,8 +97,8 @@
         }
 
         /// <summary>
-        ///     Search and return the correct <see cref="ScTexture" /> according to the given <see cref="ScInfo" /> file, and the
-        ///     specified resolution.
+        /// Search and return the correct <see cref="ScTexture" /> according to the given <see cref="ScInfo" /> file,
+        /// and the specified resolution.
         /// </summary>
         /// <param name="Path">The path.</param>
         public static ScTexture GetScTextureFile(ScInfo ScInfo)
@@ -83,8 +114,8 @@
         }
 
         /// <summary>
-        ///     Search and return the correct <see cref="ScTexture" /> according to the given <see cref="ScInfo" /> file, and the
-        ///     specified resolution.
+        /// Search and return the correct <see cref="ScTexture" /> according to the given <see cref="ScInfo" /> file,
+        /// and the specified resolution.
         /// </summary>
         /// <param name="Path">The path.</param>
         /// <param name="HighRes">The resolution.</param>

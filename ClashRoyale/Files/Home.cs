@@ -13,7 +13,7 @@
         public static bool Initalized
         {
             get;
-            set;
+            private set;
         }
 
         /// <summary>
@@ -30,7 +30,11 @@
         /// <summary>
         /// Gets the json file content.
         /// </summary>
-        public static JObject Json;
+        public static JObject Json
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Home" /> class.

@@ -6,15 +6,21 @@
     using System.Drawing.Imaging;
     using System.IO;
     using System.Linq;
-    using System.Threading.Tasks;
+
     using ClashRoyale.Extensions.Helper;
 
     public class ScTexture : ScFile
     {
-        public readonly List<Bitmap> Sheets;
+        /// <summary>
+        /// Gets the texture sheets.
+        /// </summary>
+        public List<Bitmap> Sheets
+        {
+            get;
+        }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScTexture" /> class.
+        /// Initializes a new instance of the <see cref="ScTexture" /> class.
         /// </summary>
         public ScTexture()
         {
@@ -22,7 +28,7 @@
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="ScTexture" /> class.
+        /// Initializes a new instance of the <see cref="ScTexture" /> class.
         /// </summary>
         /// <param name="File">The file.</param>
         public ScTexture(FileInfo File) : base(File)
@@ -31,11 +37,8 @@
         }
 
         /// <summary>
-        ///     Gets the <see cref="Bitmap" /> at the specified offset.
+        /// Gets the <see cref="Bitmap" /> at the specified offset.
         /// </summary>
-        /// <value>
-        ///     The <see cref="Bitmap" />.
-        /// </value>
         /// <param name="Offset">The offset.</param>
         public Bitmap this[int Offset]
         {
@@ -48,7 +51,7 @@
         /// <summary>
         ///     Reads this instance.
         /// </summary>
-        public virtual async Task Read()
+        public virtual void Read()
         {
             using (BinaryReader Stream = new BinaryReader(this.File.OpenRead()))
             {
@@ -64,7 +67,7 @@
 
                 while (Stream.BaseStream.Position < Stream.BaseStream.Length)
                 {
-                    byte PacketId = Stream.ReadByte();
+                    byte PacketId   = Stream.ReadByte();
                     uint PacketSize = Stream.ReadUInt16();
 
                     Logging.Info(this.GetType(), "ID : " + PacketId + ", SIZE : " + PacketSize + ".");
@@ -88,13 +91,13 @@
                             }
                         }
 
-                        Bitmap Sheet = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
+                        Bitmap Sheet    = new Bitmap(Width, Height, PixelFormat.Format32bppArgb);
 
-                        int ModWidth = Width % 32;
-                        int TimeWidth = (Width - ModWidth) / 32;
+                        int ModWidth    = Width % 32;
+                        int TimeWidth   = (Width - ModWidth) / 32;
 
-                        int ModHeight = Height % 32;
-                        int TimeHeight = (Height - ModHeight) / 32;
+                        int ModHeight   = Height % 32;
+                        int TimeHeight  = (Height - ModHeight) / 32;
 
                         Color[,] Pixels = new Color[Height, Width];
 

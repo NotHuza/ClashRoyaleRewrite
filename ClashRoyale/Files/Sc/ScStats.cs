@@ -13,16 +13,16 @@
         public short TransformsCount;
 
         /// <summary>
-        ///     Decodes the specified stream.
+        /// Decodes the specified stream.
         /// </summary>
         /// <param name="Stream">The stream.</param>
         public void Decode(BinaryReader Stream)
         {
-            this.SpiritesCount = Stream.ReadInt16();
-            this.AnimationsCount = Stream.ReadInt16();
-            this.SheetsCount = Stream.ReadInt16();
-            this.TextsFieldCount = Stream.ReadInt16();
-            this.TransformsCount = Stream.ReadInt16();
+            this.SpiritesCount        = Stream.ReadInt16();
+            this.AnimationsCount      = Stream.ReadInt16();
+            this.SheetsCount          = Stream.ReadInt16();
+            this.TextsFieldCount      = Stream.ReadInt16();
+            this.TransformsCount      = Stream.ReadInt16();
             this.ColorTransformsCount = Stream.ReadInt16();
 
             for (int i = 0; i < 5; i++)
@@ -30,7 +30,7 @@
                 Stream.ReadByte();
             }
 
-            this.StringsCount = Stream.ReadInt16();
+            this.StringsCount         = Stream.ReadInt16();
         }
 
         /// <summary>

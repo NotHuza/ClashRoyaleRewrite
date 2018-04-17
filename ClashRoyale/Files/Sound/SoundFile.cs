@@ -10,7 +10,10 @@
         /// <summary>
         /// Gets the file.
         /// </summary>
-        public FileInfo File;
+        public FileInfo File
+        {
+            get;
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="SoundFile" /> class.

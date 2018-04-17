@@ -3,7 +3,7 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.IO;
-    using System.Threading.Tasks;
+
     using ClashRoyale.Extensions;
 
     public class ScInfo : ScFile
@@ -43,7 +43,7 @@
         /// <summary>
         ///     Reads this instance.
         /// </summary>
-        public override async Task Read()
+        public override void Read()
         {
             using (BinaryReader Stream = new BinaryReader(this.File.OpenRead()))
             {

@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashRoyale.Compression", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashRoyale.Server", "ClashRoyale.Server\ClashRoyale.Server.csproj", "{D37FC105-EF32-4B9E-B347-1436D72693EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClashRoyale.Files", "ClashRoyale.Files\ClashRoyale.Files.csproj", "{48C2D715-413F-4F4F-9422-F2B73D6B0254}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{D37FC105-EF32-4B9E-B347-1436D72693EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D37FC105-EF32-4B9E-B347-1436D72693EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D37FC105-EF32-4B9E-B347-1436D72693EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C2D715-413F-4F4F-9422-F2B73D6B0254}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C2D715-413F-4F4F-9422-F2B73D6B0254}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C2D715-413F-4F4F-9422-F2B73D6B0254}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C2D715-413F-4F4F-9422-F2B73D6B0254}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,7 +11,7 @@
         public static bool Initialized
         {
             get;
-            set;
+            private set;
         }
 
         /// <summary>
@@ -20,7 +20,7 @@
         public static bool IsCustom
         {
             get;
-            set;
+            private set;
         }
 
         /// <summary>
@@ -48,7 +48,11 @@
         /// <summary>
         /// Gets the json file content.
         /// </summary>
-        public static JObject Json;
+        public static JObject Json
+        {
+            get;
+            private set;
+        }
 
         /// <summary>
         /// Initializes this instance.
